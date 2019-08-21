@@ -88,6 +88,18 @@ Route::get('/bankAinsert/{user_id}/{money}',function($user_id,$money)
     $post->save();
 });
 
+Route::get('/bankAcheck/{user_id}',function($user_id)
+{
+   // $results = BankAReceipt::select('SELECT SUM(money) FROM `BankBReceipt` WHERE user_id = ?',[$user_id]);
+    $results = DB::select('select sum(money) as sum from BankAReceipt where user_id = ?',[$user_id]);
+    $results = json_encode($results);
+    $results = json_decode($results, true);
+    #dd($results);
+    return $results[0]['sum'];
+    
+});
+
+
 use App\BankBReceipt;
 
 Route::get('/bankBinsert/{user_id}/{money}',function($user_id,$money)
@@ -96,6 +108,17 @@ Route::get('/bankBinsert/{user_id}/{money}',function($user_id,$money)
     $post->user_id = $user_id;
     $post->money = $money;
     $post->save();
+});
+
+Route::get('/bankBcheck/{user_id}',function($user_id)
+{
+   // $results = BankAReceipt::select('SELECT SUM(money) FROM `BankBReceipt` WHERE user_id = ?',[$user_id]);
+    $results = DB::select('select sum(money) as sum from BankBReceipt where user_id = ?',[$user_id]);
+    $results = json_encode($results);
+    $results = json_decode($results, true);
+    #dd($results);
+    return $results[0]['sum'];
+    
 });
 
 

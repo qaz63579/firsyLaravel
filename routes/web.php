@@ -75,3 +75,27 @@ Route::get('/inserdata',function(){
 Route::get('/create', function(){
     News::create(['title'=>'利用create新增的','description'=>'create的描述']);
 });
+
+//--------------------------------------------------------------------------------------
+
+use App\BankAReceipt;
+
+Route::get('/bankAinsert/{user_id}/{money}',function($user_id,$money)
+{
+    $post = new BankAReceipt;
+    $post->user_id = $user_id;
+    $post->money = $money;
+    $post->save();
+});
+
+use App\BankBReceipt;
+
+Route::get('/bankBinsert/{user_id}/{money}',function($user_id,$money)
+{
+    $post = new BankBReceipt;
+    $post->user_id = $user_id;
+    $post->money = $money;
+    $post->save();
+});
+
+

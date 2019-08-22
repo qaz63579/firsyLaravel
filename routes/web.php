@@ -120,5 +120,21 @@ Route::get('/bankBcheck/{user_id}',function($user_id)
     return $results[0]['sum'];
     
 });
+//------------------------------------------------------------------------
 
 
+Route::get('/bankAcheck','BankController@bankAcheck');
+Route::get('/bankBcheck','BankController@bankBcheck');
+
+Route::get('/bankAinsert','BankController@bankAinsert');
+Route::get('/bankBinsert','BankController@bankBinsert');
+
+
+
+
+//-------------------------------------------------------------------------
+Route::redirect('/here','/');
+
+Route::get('/tt1','BankController@tt1');
+Route::get('/tt2','BankController@tt2');
+Route::get('/tt3','BankController@tt3');

@@ -138,3 +138,14 @@ Route::redirect('/here','/');
 Route::get('/tt1','BankController@tt1');
 Route::get('/tt2','BankController@tt2');
 Route::get('/tt3','BankController@tt3');
+
+Route::get('/BankA/tt2','api\BankAController@tt2');
+
+//------------------------------------------------------------------------
+
+
+Route::get('/BankA/check','api\BankAController@check');
+Route::get('/BankA/insert','api\BankAController@insert');
+
+Route::get('/BankB/check','api\BankBController@check');
+Route::get('/BankB/insert','api\BankBController@insert');
